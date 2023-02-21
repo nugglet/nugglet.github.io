@@ -10,7 +10,7 @@ redirect_from:
 
 ## About Me
 
-Hello. Welcome to my personal blog, where I post about tech-related issues I am interested in.
+Hello, I'm Miles (nugglet). Welcome to my personal blog, where I post about tech-related issues I am interested in.
 I graduated from college with a Bachelor's in Computer Science and Design, with a minor in Artificial Intelligence. I find modern technology fascinating, and I am always seeking out new knowledge in a wide variety of technological domains. My primary interests lie within Artificial Intelligence, with a particular focus in Computer Vision techologies. As an avid gamer, I am also greatly intrigued by graphics technology. 
 
 In this blog, I hope to cover the following topics:
@@ -30,6 +30,6 @@ Of course, this list is not exhaustive, and as I am a person of Many (sadly) hob
 
 This blog serves to consolidate my learnings. Thank you for reading and I hope that you find my notes useful in some way.
 
-======
+---
 
 
