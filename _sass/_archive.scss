@@ -3,6 +3,7 @@
    ========================================================================== */
 
 .archive {
+  margin-top: 1em;
   margin-bottom: 2em;
 
   @include breakpoint($medium) {
@@ -15,10 +16,11 @@
   }
 
   a {
-    text-decoration: underline;
+    text-decoration: none;
 
     &:hover {
-      text-decoration: underline;
+      text-decoration: none;
+      color: $nugglet-green;
 
       img {
         box-shadow: 0 0 10px rgba(#000, 0.25);
@@ -27,11 +29,24 @@
   }
 }
 
+.archive__item {
+  position: relative;
+
+  a {
+    position: relative;
+    z-index: 10;
+  }
+
+  a[rel="permalink"] {
+    position: static;
+  }
+}
+
 .archive__subtitle {
-  margin: 1.414em 0 0;
+  margin: 1.414em 0 0.5em;
   padding-bottom: 0.5em;
   font-size: $type-size-5;
-  color: mix(#fff, $gray, 25%);
+  color: $muted-text-color;
   border-bottom: 1px solid $border-color;
 
   + .list__item .archive__item-title {
@@ -42,11 +57,72 @@
 .archive__item-title {
   margin-bottom: 0.25em;
   font-family: $sans-serif-narrow;
+  line-height: initial;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  a[rel="permalink"]::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
 
   a + a {
     opacity: 0.5;
   }
 }
+
+.archive__item-excerpt {
+  margin-top: 0;
+  font-size: $type-size-6;
+
+  & + p {
+    text-indent: 0;
+  }
+
+  a {
+    position: relative;
+  }
+}
+
+.archive__item-teaser {
+  position: relative;
+  border-radius: $border-radius;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+  }
+}
+
+.archive__item-caption {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0 auto;
+  padding: 2px 5px;
+  color: #fff;
+  font-family: $caption-font-family;
+  font-size: $type-size-8;
+  background: #000;
+  text-align: right;
+  z-index: 5;
+  opacity: 0.5;
+  border-radius: $border-radius 0 0 0;
+
+  @include breakpoint($large) {
+    padding: 5px 10px;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
 
 /* remove border*/
 .page__content {
@@ -243,3 +319,46 @@
     }
   }
 }
+
+/* Place inside an archive layout */
+
+.archive {
+  .feature__wrapper {
+    .archive__item-title {
+      margin-top: 0.25em;
+      font-size: 1em;
+    }
+  }
+
+  .feature__item,
+  .feature__item--left,
+  .feature__item--center,
+  .feature__item--right {
+    font-size: 1em;
+  }
+}
+
+
+/*
+   Wide Pages
+   ========================================================================== */
+
+   .wide {
+    .archive {
+      @include breakpoint($large) {
+        padding-right: 0;
+      }
+  
+      @include breakpoint($x-large) {
+        padding-right: 0;
+      }
+    }
+  }
+  
+  /* Place inside a single layout */
+  
+  .layout--single {
+    .feature__wrapper {
+      display: inline-block;
+    }
+  }

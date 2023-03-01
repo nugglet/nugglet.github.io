@@ -7,9 +7,14 @@ tags:
   - DL
   - AI
   - SWE
+excerpt_separator: "<!--more-->"
+
+toc: true
+toc_sticky: true
 ---
 
 There are two types of deep learning frameworks.
+<!--more-->
 1. Training frameworks: 
 	These frameworks are commonly known for providing tools to design and build a machine learning or deep learning model. These libraries are feature-rich to allow you to define and train your model. The goal of development during model training would be to produce accurate results (within a reasonable time frame).
 	e.g. Tensorflow, PyTorch, Caffe, Theano, MXNet etc.

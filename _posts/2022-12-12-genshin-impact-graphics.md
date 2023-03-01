@@ -7,10 +7,13 @@ tags:
   - games
   - rendering
   - unity
+excerpt_separator: "<!--more-->"
+toc: true
+toc_sticky: true
 ---
 
 
-In this article, I summarize highlights from this [video](https://www.youtube.com/watch?v=00QugD5u1CU) (Speaker: Zhenzhong Yi, miHoYo Technical Lead), along with supplementary information about the various graphic rendering techniques. This summary is my personal notes for my understanding, and is not a comprehensive source of information. I would highly recommend watching the source video linked above.
+In this article, I summarize highlights from this [video](https://www.youtube.com/watch?v=00QugD5u1CU) (Speaker: Zhenzhong Yi, miHoYo Technical Lead), along with supplementary information about the various graphic rendering techniques. <!--more--> This summary is my personal notes for my understanding, and is not a comprehensive source of information. I would highly recommend watching the source video linked above.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/00QugD5u1CU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 

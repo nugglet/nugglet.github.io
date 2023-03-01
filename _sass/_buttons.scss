@@ -28,6 +28,7 @@
 
   .icon {
     margin-right: 0.5em;
+    filter: brightness(0) invert(1);
   }
 
   .icon + .hidden {

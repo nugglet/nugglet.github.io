@@ -97,7 +97,7 @@ blockquote {
   padding-left: 1em;
   padding-right: 1em;
   font-style: italic;
-  border-left: 0.25em solid $primary-color;
+  border-left: 0.25em solid $nugglet-green;
 
   cite {
     font-style: italic;
@@ -312,4 +312,11 @@ nav {
 b, i, strong, em, blockquote, p, q, span, figure, img, h1, h2, header, input, a, tr, td, form button, input[type="submit"], .btn, .highlight, .archive__item-teaser {
   -webkit-transition: $global-transition;
   transition: $global-transition;
+}
+
+i {
+  -webkit-transition: $global-transition;
+  transition: $global-transition;
+  -webkit-filter: brightness(0) invert(1);
+  filter: brightness(0) invert(1);
 }

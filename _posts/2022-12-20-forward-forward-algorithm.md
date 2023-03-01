@@ -36,7 +36,7 @@ The goodness function was selected due to very simple derivatives and layer norm
 The aim of learning is to make the goodness be well above some threshold for real data and well below the same value for negative data. The model should correctly classify input vectors as +ve or -ve by applying the logistic fn to the goodness, minus some threshold θ.
 
 ![image-center]({{ site.url }}{{ site.baseurl }}/post_images/2022-12-20/equation.png){: .align-center}
-<sub>source: research paper linked above</sub>
+_<sub>source: research paper linked above</sub>_
 
 FF normalizes the length of the hidden vector before using it as input to the next layer. This removes the length information of the activity, which defines the goodness for that layer. Only the orientation (relative activity) of the activity will be passed on to the next layer. This is because it is not necessary for the model to learn new features from the length data.
 
@@ -53,7 +53,7 @@ __The Method:__
 	There are various ways to create corrupted data. Hinton manually creates corrupted -ve data using masks, and focuses on creating data with very different long range correlations but very similar short range correlations. __This forces FF to focus on long range correlations in imgs that characterize shape.__
 
     ![image-center]({{ site.url }}{{ site.baseurl }}/post_images/2022-12-20/FF.png){: .align-center}
-    <sub>source: i draw things</sub>
+    _<sub>source: i draw things</sub>_
 
 	When jittering is applied on the data, test error decreased to 0.64% (from 1.36% before), which is close to a backprop cnn. Images were jittered by 2 pixels in each direction to get 25 different shifts for each image. This forces the use of spatial layout of pixels, making the model no longer permutation invariant.
 	
@@ -67,17 +67,13 @@ __The Method:__
 
 ## Key Takeaways
 
-Backprop (BP) | Forward-forward (FF)
-Likely here to stay for most general applications | Currently does not generalize that well
- | Outperforms in 2 cases:
-	1. as a model for cortex learning
-	2. low-power analog hardware (can replace RL)
-
- | Comparable/Slightly slower speed to BP (paper did not clarify if it referred to training or prediction speed)
-
- | Can be used when forward pass is unknown
-
- | Can learn while pipelining sequential data continuously
+| Backprop (BP)          							| Forward-forward (FF)  						|
+| ----------------------------------         		| ---------------------------------- 
+| Likely here to stay for most general applications	| Currently does not generalize that well   	|
+| 													| Outperforms in 2 cases: 1. as a model for cortex learning 2. low-power analog hardware (can replace RL) |
+|													| Comparable/Slightly slower speed to BP (paper did not clarify if it referred to training or prediction speed) |
+|													| Can be used when forward pass is unknown |
+| 													| Can learn while pipelining sequential data continuously |
 
 Things to Note:
 - The paper only tested FF on small networks of a few million connections. Large networks have yet to be tested.

@@ -16,7 +16,7 @@ table {
 }
 
 thead {
-  background-color: $lighter-gray;
+  background-color: rgb(178, 226, 178);
   border-bottom: 1px solid $light-gray;
 }
 
@@ -25,6 +25,7 @@ th {
   font-weight: bold;
   text-align: left;
   border-right: 1px solid $light-gray;
+  color: $darker-gray;
 }
 
 td {

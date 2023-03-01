@@ -45,6 +45,8 @@
   display: block;
   list-style-type: none;
   white-space: nowrap;
+  -webkit-text-fill-color: $lighter-gray;
+  text-decoration-color: $lighter-gray;
 
   &--lg {
     padding-right: 2em;
