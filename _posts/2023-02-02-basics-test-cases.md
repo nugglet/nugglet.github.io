@@ -1,6 +1,6 @@
 ---
 title: 'Basics of Writing Unit Test Cases'
-date: 2/2/2023
+date: 2023-02-02
 permalink: /posts/2023/02/basics_of_writing_unit_test_cases
 tags:
   - SWE

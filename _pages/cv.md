@@ -19,22 +19,24 @@ Education
 Work experience
 ======
 ### JustAce, Singapore
-Co-Founder, Software Engineer
-Jan 21 - Aug 22
-  * Project: EdTech Startup Initiative
+> Co-Founder, Software Engineer, Jan 21 - Aug 22
+
+  * Project: EdTech Startup Company
+    * Designed and iterated on business model through rigorous rounds of research and market validation
+    * Participated in several rounds of fund raising through pitching to boards of potential investors and mentors
     * Engineered a platform of educational tools to assist the learning and engagement of parents and students aged 10-19 
 under Singapore’s education syllabus
   * Skillsets: Deep Learning, NLP, MLOps, Web Development, Front/Back-End Development, DevOps, UI/UX, Graphics and Marketing
 
 ### RippleCreate, Singapore
-Software Engineer
-Feb 22 - Apr 22
+> Software Engineer, Feb 22 - Apr 22
+
   * Project: Integrated Web Portal with Real-Time Machine Learning Data
-  * Skillsets: Web Development, UI/UX, Data Visualisation, VOIP, DevOps
+  * Skillsets: Web Development, UI/UX, Data Visualisation, VOIP, DevOps, JavaScript, TypeScript
 
 ### STMicroelectronics Asia Pacific Ltd, Japan 
-AI Intern
-May 21 - Sep 21
+> AI Intern, May 21 - Sep 21
+
   * Project: Neural Network Research and Development for Embedded Devices
   * Skillsets: Deep Learning, Data Analysis, Data Wrangling, Microcontrollers, Data Collections, Data Visualisation
 

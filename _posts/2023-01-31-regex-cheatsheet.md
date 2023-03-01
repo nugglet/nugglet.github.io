@@ -1,6 +1,6 @@
 ---
 title: 'Regex Cheatsheet'
-date: 31/1/2023
+date: 2023-01-31
 permalink: /posts/2023/01/regex_cheatsheet
 tags:
   - SWE

@@ -30,6 +30,4 @@ Of course, this list is not exhaustive, and as I am a person of Many (sadly) hob
 
 This blog serves to consolidate my learnings. Thank you for reading and I hope that you find my notes useful in some way.
 
----
-
-
+>  V ` )/~~~
