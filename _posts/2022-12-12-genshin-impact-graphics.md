@@ -1,6 +1,6 @@
 ---
 title: 'Console Graphics Rendering Pipeline [Genshin Impact]'
-date: 12/12/2022
+date: 2022-12-12
 permalink: /posts/2022/12/console_graphics_rendering_pipeline_genshin_impact
 tags:
   - graphics

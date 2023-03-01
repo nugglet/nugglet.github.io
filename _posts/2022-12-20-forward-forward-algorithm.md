@@ -1,6 +1,6 @@
 ---
 title: 'To Do Away with Backprop'
-date: 20/12/2022
+date: 2022-12-20
 permalink: /posts/2022/12/to_do_away_with_backprop
 tags:
   - Algorithms
