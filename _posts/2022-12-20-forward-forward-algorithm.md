@@ -3,15 +3,16 @@ title: 'To Do Away with Backprop'
 date: 2022-12-20
 permalink: /posts/2022/12/to_do_away_with_backprop
 tags:
-  - Algorithms
+  - algorithms
   - ML
-  - Research Papers
+  - research papers
+excerpt_separator: "<!--more-->"
 ---
 
 From [The Forward-Forward Algorithm: Some Preliminary Investigations, Geoffrey Hinton](https://www.cs.toronto.edu/~hinton/FFA13.pdf)
 
 ## Abstract:
-In this paper, Hinton explains a new forward-forward (FF) algorithm to replace  backpropagation.
+In this paper, Hinton explains a new forward-forward (FF) algorithm to replace  backpropagation.<!--more-->
 
 ### Summary
 Motivation:

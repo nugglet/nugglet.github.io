@@ -1,0 +1,39 @@
+---
+title: 'Continuous Integration and Deployment (CI/CD)'
+date: 2023-02-22
+permalink: /posts/2023/02/cicd
+tags:
+  - SWE
+  - testing
+---
+
+
+CI: Continuous Integration    CD: Continuous Deployment
+CI/CD refers to an automated testing pipeline.
+
+CI vs CD
+
+CI automates building and testing of software. CD is an extension of CI. It allows software to be deployed after every code commit that passes your test suite. 
+
+
+## 3 Parts of a CI/CD Pipeline
+
+1. Build Stage
+	- Multiple teams pushing  code to a repository (e.g. github)
+	- Commit conflicts arise due to quickly increasing code complexity and difference in code styles (e.g. env, tooling, code quality)
+	- Including build process in the pipeline automates dev contributions and provides tools to standardize quality and dev environments
+2. Testing Stage
+	- Different types of testing can be used together in an automated CI pipeline (i.e. unit + integration testing)
+	- Testing measures vital data about software performance that can be integrated back into the code. This results in higher quality software with fewer bugs.
+3. Deploy Stage
+	- Deployment strategy configures the release of software to production or other envs.
+	- The pipeline can be configured to deploy on a schedule, select which group of customers to roll updates to, or roll back releases if there are issues.
+
+
+## CI Configurations
+
+CI configurations are usually stored in some config file.
+- Workflows: Allows you to run and troubleshoot jobs separately so you can see failed builds in real time (sort of like a framework that facilitates unit testing)
+- Jobs: Collections of steps that are executed in a single unit. Workflows are the set of rules that define a set of jobs and run order.
+- Config steps: a list of key-value pairs where key = type of step and value = config map or string . When a step is run, you can specify which command to execute as a string value.
+- Different CI frameworks may also have additional task configurations  and classes to optimize the CI/CD build.

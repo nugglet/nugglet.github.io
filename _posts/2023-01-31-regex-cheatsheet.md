@@ -4,7 +4,7 @@ date: 2023-01-31
 permalink: /posts/2023/01/regex_cheatsheet
 tags:
   - SWE
-  - Regular Expressions
+  - regular expressions
   - cheatsheet
 ---
 
