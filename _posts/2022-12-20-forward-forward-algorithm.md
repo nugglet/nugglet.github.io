@@ -7,6 +7,8 @@ tags:
   - ML
   - research papers
 excerpt_separator: "<!--more-->"
+toc: true
+classes: wide
 ---
 
 From [The Forward-Forward Algorithm: Some Preliminary Investigations, Geoffrey Hinton](https://www.cs.toronto.edu/~hinton/FFA13.pdf)

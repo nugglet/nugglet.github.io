@@ -1,12 +1,18 @@
 ---
-title: 'Overcoming Browser Compatibility Issues'
+title: 'Overcoming Browser Cross Compatibility Issues'
 date: 2023-02-18
 permalink: /posts/2023/02/overcoming_browser_compat
 tags:
   - SWE
   - testing
   - webdev
+excerpt_separator: "<!--more-->"
+
+toc: false
+toc_sticky: true
 ---
+
+From Google Chrome to Firefox to Opera GX, each browser has varying support and implementation for web pages. In this article, I explore the various challenges of developing cross-compatible webpages and some common bugfixes.<!--more-->
 
 ## Challenges:
 

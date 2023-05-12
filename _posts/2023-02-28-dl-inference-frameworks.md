@@ -10,7 +10,7 @@ tags:
 excerpt_separator: "<!--more-->"
 
 toc: true
-toc_sticky: true
+classes: wide
 ---
 
 There are two types of deep learning frameworks.

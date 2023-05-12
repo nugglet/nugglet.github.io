@@ -18,6 +18,10 @@ Education
 
 Work experience
 ======
+### Robotics Innovation Lab (SUTD), Singapore
+> Researcher, Apr 23 - Present
+
+
 ### JustAce, Singapore
 > Co-Founder, Software Engineer, Jan 21 - Aug 22
 
