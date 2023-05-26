@@ -16,16 +16,17 @@ table {
 }
 
 thead {
-  background-color: rgb(178, 226, 178);
+  background-color: $header-color;
   border-bottom: 1px solid $light-gray;
+  align-content: center;
 }
 
 th {
   padding: 0.5em;
   font-weight: bold;
-  text-align: left;
+  text-align: center;
   border-right: 1px solid $light-gray;
-  color: $darker-gray;
+  color: $text-color;
 }
 
 td {

@@ -47,14 +47,14 @@ The Docker [documentation](https://docs.docker.com/desktop/install/windows-insta
 
 A docker container is made up of a stack of layers of images, with its base image being some sort of linux distribution. It is important for this image to be small (e.g. alpine). At the top would be the application image (i.e. postgres).
 
-| Docker image: an application package and its dependencies/configurations/start scripts etc. A docker image is a static artifact that can be moved around.
+> Docker image: an application package and its dependencies/configurations/start scripts etc. A docker image is a static artifact that can be moved around.
 
-| Docker container: An image that has been pulled and is running on a machine, creating an isolated application environment.
+> Docker container: An image that has been pulled and is running on a machine, creating an isolated application environment.
  
 A docker container can be pulled from a repository using  `docker pull <image_name>:<image_tag>`
 or `docker run <image_name>:<image_tag>`. The `<image_tag>` is an optional parameter. Using the run command automatically pulls images not installed locally and runs it.
 
-| Tag: The docker tag refers to its image version.
+> Tag: The docker tag refers to its image version.
 
 A docker container has a port bound to it to allow communication with the application running in the container, and has its own isolated virtual filesystem. 
 
@@ -88,22 +88,24 @@ It is not always necessary to write your own dockerfile. They can be autogenerat
 
 Below are an overview of the Dockerfile instructions. See the [official documentation](https://docs.docker.com/engine/reference/builder/) for more usage details.
 
-Dockerfile Instruction | Explanation
-FROM | To specify the base image which can be pulled from a container registry (DockerHub, GCR, Quay, ECR, etc)
-RUN | Executes commands during the image build process. 
-ENV | Sets environment variables inside the image, available during build time as well as in a running container
-COPY | Copies local files and directories to the image
-EXPOSE | Specifies the port to be exposed for the Docker container.
-ADD	| More feature-rich version of the COPY instruction (allows copying from source URL and supports tar file auto-extraction into the image). However, COPY is recommended over ADD. To download remote files, use curl or RUN.
-WORKDIR | Sets current working directory
-VOLUME | Create or mount the volume to the Docker container
-USER | Sets the username and UID when running the container. Can be used to set a non-root user.
-LABEL | It is used to specify metadata information of Docker image
-ARG | Is used to set build-time variables with key and value.
-CMD	| Execute a command in a running container. There can be only one CMD (only last CMD is applied if there are many). It can be overridden from the Docker CLI.
-ENTRYPOINT | Specifies commands to be executed when the container starts. Defaults to /bin/sh -c. In the CLI, use the --entrypoint flag to override.
+| Dockerfile Instruction | Explanation             |
+| ---------------------- | ----------------------- |
+| FROM | To specify the base image which can be pulled from a container registry (DockerHub, GCR, Quay, ECR, etc) |
+| RUN | Executes commands during the image build process. | 
+| ENV | Sets environment variables inside the image, available during build time as well as in a running container |
+| COPY | Copies local files and directories to the image |
+| EXPOSE | Specifies the port to be exposed for the Docker container. |
+| ADD	| More feature-rich version of the COPY instruction (allows copying from source URL and supports tar file auto-extraction into the image). However, COPY is recommended over ADD. To download remote files, use curl or RUN. |
+| WORKDIR | Sets current working directory |
+| VOLUME | Create or mount the volume to the Docker container |
+| USER | Sets the username and UID when running the container. Can be used to set a non-root user. |
+| LABEL | It is used to specify metadata information of Docker image |
+| ARG | Is used to set build-time variables with key and value. |
+| CMD	| Execute a command in a running container. There can be only one CMD (only last CMD is applied if there are many). It can be overridden from the Docker CLI. |
+| ENTRYPOINT | Specifies commands to be executed when the container starts. Defaults to /bin/sh -c. In the CLI, use the --entrypoint flag to override. |
+ 
 
-| Docker Build Context: The docker host location where all the code, files, configs and Dockerfile for building the container live. It is possible to have the dockerfile be in a separate repository to the build context. Ideally, the build context should be kept isolated from any unrelated files to avoid unwanted files bloating the docker image.
+> Docker Build Context: The docker host location where all the code, files, configs and Dockerfile for building the container live. It is possible to have the dockerfile be in a separate repository to the build context. Ideally, the build context should be kept isolated from any unrelated files to avoid unwanted files bloating the docker image.
 
 
 ### `.dockerignore` File
@@ -139,7 +141,7 @@ An image is stale if there has been no push or pull activity for more than one m
 Docker falls under the DevOps category in a tech stack, facilitating better management of development environments and application deployment. Below is a sample diagram of a possible tech stack with docker containers.
 
 ![image-center]({{ site.url }}{{ site.baseurl }}/post_images/2023-05/techstack.png){: .align-center}
-<sub>source: Sample tech stack with docker containers ([source](https://programmaticponderings.com/tag/docker-container/))</sub>
+<sub style="text-align:center">Sample tech stack with docker containers ([source](https://programmaticponderings.com/tag/docker-container/))</sub>
 
 ## Docker Commands and Actions
 
@@ -306,7 +308,7 @@ Use when:
 
 Use the `docker run --rm -d --network host --name my_nginx nginx`  command to start an Nginx image and listen to port 80 on the host machine.
 
-| Port 80 is a well-known port used for internet communications through HTTP.
+> Port 80 is a well-known port used for internet communications through HTTP.
 
 
 ### None Driver
