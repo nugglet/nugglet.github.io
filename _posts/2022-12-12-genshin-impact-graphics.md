@@ -9,6 +9,7 @@ tags:
   - unity
 excerpt_separator: "<!--more-->"
 toc: true
+toc_sticky: true
 classes: wide
 ---
 
@@ -44,7 +45,7 @@ __Methodology:__ Cascaded Shadow Map + Poisson Noise Soft Shadows
 
 In the game, 8 cascades were used, which is a brute force method (usually 4 are used). Shadow quality  increases with increasing cascades, however this also increases the performance CPU and GPU overhead.  CPU optimizations were performed in order to mitigate this issue. This included Shadow Caching to reduce draw call count. The first 4 cascades are updated with each frame, along with one of the last 4 cascades (5 cascades/frame). There was no mention if the last 4 cascades are updated sequentially or randomly.  This method reduces the draw call count drastically. For GPU optimizations, a screen space shadow map based on is generated. Initially, 11 samples of Poisson noise is calculated per pixel to generate soft shadows and eliminate banding.  However, this is computationally expensive,  resulting in GPU computation times of 2-2.6ms per pixel. Since soft shadows are only required for edge feathering, a full-screen mask map is generated to mark the shadow, nonshadow and penumbra (edge) areas. Poisson soft shadows are then calculated for only penumbra areas. This reduces the GPU computation time to 1.3-1.7ms (almost 35% improvement). The mask map gene ration algorithm is as follows:
 
-![image-center]({{ site.url }}{{ site.baseurl }}/post_images/2022-12-12/mask_generation.png){: .align-center}
+![image-center]({{ site.url }}{{ site.baseurl }}/post_images/2022-12/mask_generation.png){: .align-center}
 <sub>source: video (linked above)</sub>
 
 ## Ambient Occlusion
@@ -65,7 +66,7 @@ AO optimizations consist of setting  a render target (with 0.5 x 0.5 resolution)
 ## Local Lighting
 Clustered deferred lighting is implemented, which supports 1024 tiles in view. The screen is divided into 64 x 64 x 16 pixel cubes. Shadow map resolution are adjusted based on distance and  render priority. The final local light shadows are computed using  a combination of pre-baked static shadow textures and dynamic object shadows being cast by the object at real time. Genshin Impact has a lot of local lighting, and if simple [block compression (BCn)](https://www.reedbeta.com/blog/understanding-bcn-texture-compression-formats/#:~:text=BC%20stands%20for%20“block%20compression,one%20contiguous%20chunk%20in%20memory.) were used to compress all the many baked shadow textures, there would be significant texture artifacting. This also puts a heavy load on both the game's capacity and I/O.  Thus a better compression algorithm is required. One that is minimal precision noise, high enough compression rate, and fast enough to be computed at runtime. The compression algorithm implemented compression shadow textures offline, then decompresses it at runtime using [compute shaders](https://www.khronos.org/opengl/wiki/Compute_Shader). The (local light shadow texture compression)[https://history.siggraph.org/wp-content/uploads/2022/09/2019-Talks-Li_A-Scalable-Real-Time-Many-Shadowed-Light-Rendering-System.pdf] is as follows:
 
-![image-center]({{ site.url }}{{ site.baseurl }}/post_images/2022-12-12/LLST_compression.png){: .align-center}
+![image-center]({{ site.url }}{{ site.baseurl }}/post_images/2022-12/LLST_compression.png){: .align-center}
 <sub>source: video (linked above)</sub>
 
 ## Volumetric Fog (God Rays)
@@ -102,7 +103,7 @@ To support HDR display, we must consider luminance and colour space.
 
 HDR displays uses the SMPTE ST 2084 transfer function which supports a max brightness of 10,000 nits. A wide colour gamut is also used via the Rec. 2020 colour space, which covers 75.8% of the CIE 1931 colour space, as compared to the Rec. 709 which is commonly used by HDTV and only covers 35.9%.  The HDR display pipeline is as follows:
 
-![image-center]({{ site.url }}{{ site.baseurl }}/post_images/2022-12-12/hdr.png){: .align-center}
+![image-center]({{ site.url }}{{ site.baseurl }}/post_images/2022-12/hdr.png){: .align-center}
 <sub>source: video (linked above)</sub>
 
 The HDR output is blended with the tone mapping result (SDR pipeline) in place of the ACES pipeline (RRT+ODT). This allows the game to achieve a similar result to SDR where scene intensity would not be high enough.

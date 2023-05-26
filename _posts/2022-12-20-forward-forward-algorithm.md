@@ -8,6 +8,7 @@ tags:
   - research papers
 excerpt_separator: "<!--more-->"
 toc: true
+toc_sticky: true
 classes: wide
 ---
 
@@ -38,7 +39,7 @@ The goodness function was selected due to very simple derivatives and layer norm
 ### Training:
 The aim of learning is to make the goodness be well above some threshold for real data and well below the same value for negative data. The model should correctly classify input vectors as +ve or -ve by applying the logistic fn to the goodness, minus some threshold θ.
 
-![image-center]({{ site.url }}{{ site.baseurl }}/post_images/2022-12-20/equation.png){: .align-center}
+![image-center]({{ site.url }}{{ site.baseurl }}/post_images/2022-12/equation.png){: .align-center}
 _<sub>source: research paper linked above</sub>_
 
 FF normalizes the length of the hidden vector before using it as input to the next layer. This removes the length information of the activity, which defines the goodness for that layer. Only the orientation (relative activity) of the activity will be passed on to the next layer. This is because it is not necessary for the model to learn new features from the length data.
@@ -55,7 +56,7 @@ __The Method:__
 	Real data --> +ve || Corrupted data --> -ve
 	There are various ways to create corrupted data. Hinton manually creates corrupted -ve data using masks, and focuses on creating data with very different long range correlations but very similar short range correlations. __This forces FF to focus on long range correlations in imgs that characterize shape.__
 
-    ![image-center]({{ site.url }}{{ site.baseurl }}/post_images/2022-12-20/FF.png){: .align-center}
+    ![image-center]({{ site.url }}{{ site.baseurl }}/post_images/2022-12/FF.png){: .align-center}
     _<sub>source: i draw things</sub>_
 
 	When jittering is applied on the data, test error decreased to 0.64% (from 1.36% before), which is close to a backprop cnn. Images were jittered by 2 pixels in each direction to get 25 different shifts for each image. This forces the use of spatial layout of pixels, making the model no longer permutation invariant.

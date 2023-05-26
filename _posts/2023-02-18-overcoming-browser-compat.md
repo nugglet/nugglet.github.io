@@ -8,7 +8,7 @@ tags:
   - webdev
 excerpt_separator: "<!--more-->"
 
-toc: false
+toc: true
 toc_sticky: true
 ---
 

@@ -10,6 +10,7 @@ tags:
 excerpt_separator: "<!--more-->"
 
 toc: true
+toc_sticky: true
 classes: wide
 ---
 
