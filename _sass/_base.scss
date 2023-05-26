@@ -115,9 +115,14 @@ a {
   &:focus {
     @extend %tab-focus;
   }
-
-  &:hover,
-  &:active {
+  &:link { text-decoration: none; }
+  &:visited { text-decoration: none; }
+  &:hover { 
+    text-decoration: none; 
+    color: $link-color; 
+  }
+  &:active { 
+    text-decoration: none; 
     outline: 0;
   }
 }
@@ -290,7 +295,10 @@ nav {
   }
 
   a {
-    text-decoration: none;
+    &:link{ text-decoration: none; }
+    &:visited{ text-decoration: none; }
+    &:hover{ text-decoration: none; }
+    &:active{ text-decoration: none; }
   }
 
   /* override white-space for nested lists */

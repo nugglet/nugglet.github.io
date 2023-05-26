@@ -45,11 +45,17 @@
   display: block;
   list-style-type: none;
   white-space: nowrap;
-  -webkit-text-fill-color: $lighter-gray;
-  text-decoration-color: $lighter-gray;
+  -webkit-text-fill-color: $nugglet-green;
 
   &--lg {
     padding-right: 2em;
     font-weight: 700;
+  }
+
+  .a{
+    &:link{ text-decoration: none; }
+    &:visited{ text-decoration: none; }
+    &:hover{ text-decoration: none; }
+    &:active{ text-decoration: none; }
   }
 }

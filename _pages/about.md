@@ -1,14 +1,12 @@
 ---
 permalink: /
-title: "Code Nuggets"
+title: "About Me"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
-
-## About Me
 
 Hello! I'm Miles (nugglet). Welcome to my personal blog, where I post about tech-related issues I am interested in.
 I graduated from college with a Bachelor's in Computer Science and Design, with a minor in Artificial Intelligence. I find modern technology fascinating, and I am always seeking out new knowledge in a wide variety of technological domains. My primary interests lie within Artificial Intelligence, with a particular focus in Computer Vision techologies. As an avid gamer, I am also greatly intrigued by graphics technology. 

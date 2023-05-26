@@ -57,6 +57,26 @@ $(document).ready(function(){
     $(".author__urls-wrapper button").toggleClass("open");
   });
 
+  // Close search screen with Esc key
+  $(document).keyup(function(e) {
+    if (e.keyCode === 27) {
+      if ($(".initial-content").hasClass("is--hidden")) {
+        $(".search-content").toggleClass("is--visible");
+        $(".initial-content").toggleClass("is--hidden");
+      }
+    }
+  });
+
+  // Search toggle
+  $(".search__toggle").on("click", function() {
+    $(".search-content").toggleClass("is--visible");
+    $(".initial-content").toggleClass("is--hidden");
+    // set focus on input
+    setTimeout(function() {
+      $(".search-content").find("input").focus();
+    }, 400);
+  });
+
   // init smooth scroll
   $("a").smoothScroll({offset: -20});
 
@@ -93,6 +113,19 @@ $(document).ready(function(){
     },
     closeOnContentClick: true,
     midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
+  });
+
+  // Add anchors for headings
+  $('.page__content').find('h1, h2, h3, h4, h5, h6').each(function() {
+    var id = $(this).attr('id');
+    if (id) {
+      var anchor = document.createElement("a");
+      anchor.className = 'header-link';
+      anchor.href = '#' + id;
+      anchor.innerHTML = '<span class=\"sr-only\">Permalink</span><i class=\"fas fa-link\"></i>';
+      anchor.title = "Permalink";
+      $(this).append(anchor);
+    }
   });
 
 });

@@ -27,6 +27,12 @@
 
   @include breakpoint($x-large) {
     padding-right: 0;
+    // width: calc(#{$right-sidebar-width} - 1em);
+  }
+
+  > * {
+    margin-top: 1em;
+    margin-bottom: 1em;
   }
 
   h2, h3, h4, h5, h6 {
@@ -46,6 +52,10 @@
 
   img {
     width: 100%;
+    &.emoji {
+      width: 20px;
+      height: 20px;
+    }
   }
 }
 
@@ -53,17 +63,49 @@
   margin-bottom: 1em;
 
   @include breakpoint($large) {
-    position: relative;
-    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
     width: $right-sidebar-width-narrow;
-    margin-left: span(0.5 of 12);
+    // margin-left: span(0.5 of 12);
+    margin-right: -1.6 * $right-sidebar-width-narrow;
+    padding-left: 1em;
     z-index: 10;
+
+    &.sticky {
+      @include clearfix();
+      position: -webkit-sticky;
+      position: sticky;
+      float: right;
+      // top: 2em;
+      
+
+      .toc {
+        .toc__menu {
+          overflow-y: auto;
+          max-height: calc(100vh - 7em);
+        }
+      }
+    }
   }
 
   @include breakpoint($x-large) {
     width: $right-sidebar-width;
   }
 }
+
+.splash .sidebar__right {
+  @include breakpoint($large) {
+    position: relative;
+    float: right;
+    margin-right: 0;
+  }
+
+  @include breakpoint($x-large) {
+    margin-right: 0;
+  }
+}
+
 
 /*
    Author profile and links
@@ -235,3 +277,30 @@
     }
   }
 }
+
+/*
+   Wide Pages
+   ========================================================================== */
+
+   .wide .sidebar__right {
+    margin-bottom: 1em;
+  
+    @include breakpoint($large) {
+      position: initial;
+      top: initial;
+      right: initial;
+      width: initial;
+      margin-right: initial;
+      padding-left: initial;
+      z-index: initial;
+  
+      &.sticky {
+        float: none;
+      }
+    }
+  
+    @include breakpoint($x-large) {
+      width: initial;
+      margin-right: initial;
+    }
+  }

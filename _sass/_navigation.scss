@@ -371,16 +371,16 @@
 
 .toc {
   font-family: $sans-serif-narrow;
-  color: $gray;
+  background-color: $text-color;
+  color: $background-color;
   text-transform: uppercase;
   letter-spacing: 1px;
-  background-color: #fff;
   border: 1px solid $border-color;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
 
   .nav__title {
-    color: #fff;
+    color: $background-color;
     font-size: $type-size-6;
     background: $primary-color;
     border-top-left-radius: $border-radius;
@@ -393,21 +393,29 @@
   padding: 0;
   width: 100%;
   list-style: none;
-  font-size: 0.8rem;
+  font-size: 1rem;
 
   a {
     display: block;
     padding: 0.5rem 1rem;
-    color: $gray;
+    color: $text-color;
+    background-color: $background-color;
     font-size: $type-size-7;
     font-weight: bold;
     line-height: 1.5;
     border-bottom: 1px solid $border-color;
+    text-decoration: none;
+
+    &:link { text-decoration: none; }
+
+    &:visited { text-decoration: none; }
 
     &:hover {
-      color: #000;
-      background: $lighter-gray;
+      color: $link-color;
+      text-decoration: none;
     }
+
+    &:active { text-decoration: none; }
   }
 
   > li:last-child {
