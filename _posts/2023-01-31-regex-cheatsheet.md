@@ -6,9 +6,11 @@ tags:
   - SWE
   - regular expressions
   - cheatsheet
+
+excerpt_separator: "<!--more-->"
 ---
 
-This guide details the quintessential parts of regular expressions (at least for me). A more detailed list of operators can be found [here](https://www.rexegg.com/regex-quickstart.html).
+This guide details the quintessential parts of regular expressions (at least for me). A more detailed list of operators can be found [here](https://www.rexegg.com/regex-quickstart.html).<!--more-->
 
 ```
 // in the following example, the `/` is used to wrap the regex. `\d+` represents numbers from 0 to 9. // the `g` tag indicates global search

@@ -12,10 +12,10 @@ toc_sticky: true
 classes: wide
 ---
 
-From [The Forward-Forward Algorithm: Some Preliminary Investigations, Geoffrey Hinton](https://www.cs.toronto.edu/~hinton/FFA13.pdf)
+From [The Forward-Forward Algorithm: Some Preliminary Investigations, Geoffrey Hinton](https://www.cs.toronto.edu/~hinton/FFA13.pdf)<!--more-->
 
 ## Abstract:
-In this paper, Hinton explains a new forward-forward (FF) algorithm to replace  backpropagation.<!--more-->
+In this paper, Hinton explains a new forward-forward (FF) algorithm to replace  backpropagation.
 
 ### Summary
 Motivation:

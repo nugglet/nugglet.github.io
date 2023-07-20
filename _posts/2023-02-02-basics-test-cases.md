@@ -5,9 +5,10 @@ permalink: /posts/2023/02/basics_of_writing_unit_test_cases
 tags:
   - SWE
   - testing
+excerpt_separator: "<!--more-->"
 ---
 
-Writing good unit test cases is an important part of any software endeavour. But what constitutes a good unit test?
+Writing good unit test cases is an important part of any software endeavour. But what constitutes a good unit test? <!--more-->
 
 ## Manual Test Cases
 Reasons to use: automation is too expensive, tests are too complex, better for more created/empathetic test approaches
