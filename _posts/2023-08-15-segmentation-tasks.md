@@ -50,9 +50,15 @@ Applications of Semantic Segmentation:
 
 Instance Segmentation combines object detection and semantic segmentation. It identifies all instances of a class, and can demarcate each object as separate instance of the same class. Compared to semantic segmentation, the output of instance segmentation is more detailed, able to recognize objects as sheep, and also able to distinguish each sheep as a separate sheep, not simply a blob of sheep pixels (which may in fact include multiple sheep). However, this also means that in essence, each sheep is treated as a separate sheep class on its own.
 
-An Instance segmentation model functions as such:
-1. Object Detection - find bounding boxes for every object in the image
-2. Semantic Segmentation - Perform semantic segmentation within each bounding box
+An Instance segmentation model functions as a combination of 2 methods:
+1. Object Detection - find bounding boxes for every object
+2. Semantic Segmentation - find object masks for each object
+
+In implementation, there are 2 approaches:
+1. Top-down: Learn semantic point features first, then group into separate instances
+	- Uses approach similar to Mask R-CNN, where instances are detected as bounding boxes, then mask segmentation is performed on each box individually.
+2. Bottom-up: Detect object instances then refine semantic mask
+	- Uses Contrastive Learning; points are mapped to a high-dimensional feature space where features of the same instance are close together, and far apart from others.
 
 Applications of Instance Segmentation: 
 1. Medical: Identify tumors in MRI scans etc.
