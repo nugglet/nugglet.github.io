@@ -1,5 +1,5 @@
 ---
-title: 'Console Graphics Rendering Pipeline [Genshin Impact]'
+title: 'Genshin Impact: Console Graphics Rendering Pipeline'
 date: 2022-12-12
 permalink: /posts/2022/12/console_graphics_rendering_pipeline_genshin_impact
 tags:
@@ -64,16 +64,19 @@ Ambient Occlusion (AO) creates realistic shadows around objects. Screen Space Am
 AO optimizations consist of setting  a render target (with 0.5 x 0.5 resolution). Bilateral upsampling to full resolution is performed and bilateral filtered gaussian blur is applied to eliminate noise (avoid wrong pixel info from bleeding into nearby pixels). Since bilateral filter have a lot of repeated calculations, the blur and upsampling passes are merged into one compute pass to reduce the number of AO reads and writes. 4 pixels are output per thread (instead of 1) to allow reuse of intermediate calculation results. This can be performed as an async compute task to further reduce GPU computational cost.		
 
 ## Local Lighting
+
 Clustered deferred lighting is implemented, which supports 1024 tiles in view. The screen is divided into 64 x 64 x 16 pixel cubes. Shadow map resolution are adjusted based on distance and  render priority. The final local light shadows are computed using  a combination of pre-baked static shadow textures and dynamic object shadows being cast by the object at real time. Genshin Impact has a lot of local lighting, and if simple [block compression (BCn)](https://www.reedbeta.com/blog/understanding-bcn-texture-compression-formats/#:~:text=BC%20stands%20for%20“block%20compression,one%20contiguous%20chunk%20in%20memory.) were used to compress all the many baked shadow textures, there would be significant texture artifacting. This also puts a heavy load on both the game's capacity and I/O.  Thus a better compression algorithm is required. One that is minimal precision noise, high enough compression rate, and fast enough to be computed at runtime. The compression algorithm implemented compression shadow textures offline, then decompresses it at runtime using [compute shaders](https://www.khronos.org/opengl/wiki/Compute_Shader). The (local light shadow texture compression)[https://history.siggraph.org/wp-content/uploads/2022/09/2019-Talks-Li_A-Scalable-Real-Time-Many-Shadowed-Light-Rendering-System.pdf] is as follows:
 
 ![image-center]({{ site.url }}{{ site.baseurl }}/post_images/2022-12/LLST_compression.png){: .align-center}
 <sub>source: video (linked above)</sub>
 
 ## Volumetric Fog (God Rays)
+
 Volumetric Fog is essentially an offshoot of the local lighting technique, creating dense fog in a scene which, when combined with Volumetric Lighting, can lead to deeply atmospheric visuals. This technique is used for fog, clouds, dust, smoke, or any airborne material capable of partial occlusion. In Unity, the engine computes participating media density and lighting  ([physically-based light scattering](https://reference.wolfram.com/language/tutorial/PhysicallyBasedRendering.html)) at every point in the camera frustum, so that varying densities and any number of lights affecting the fog are supported. Volumetric fog is dependent on camera view. The view frustrum is divided into voxels and aligned with the clusters of clustered deferred lighting. Local light can illuminate volumetric fog, and if the local light has a projection texture, the fog will produce the corresponding effect. The fog parameters are saved in texture and loaded into the world via streaming. Parameters are injected into voxels during calculation, allowing local lighting to be taken into account during rendering. Volumetric information is obtained through [ray marching](https://michaelwalczyk.com/blog-ray-marching.html), generating god rays ([volumetric light scattering](https://developer.nvidia.com/gpugems/gpugems3/part-ii-light-and-shadows/chapter-13-volumetric-light-scattering-post-process)). God rays are generated in an additional pass using ray marching as the team decided that the god rays produced by volumetric fog alone was not satisfactory. The voxel's resolution was not high enough and the intensity of god rays rely on the density of volumetric fog, so dense fog would result in muddy lighting. When generated separately, god rays have a higher resolution, sharper edges and more room for adjustment.
 
 
 ## Image-based lighting
+
 Simple pre-baked [cubemaps](https://docs.unity3d.com/560/Documentation/Manual/class-Cubemap.html) cannot be used since the lighting in the game changes dynamically according to the game's time of day and dynamic weather. [Reflection probes](https://docs.unity3d.com/560/Documentation/Manual/class-ReflectionProbe.html) are used to provide reflection data for a scene. For every probe, a mini [G-buffer](https://stackoverflow.com/questions/37745109/what-is-the-difference-between-a-nd-buffer-and-a-g-buffer) (geometry buffer) is saved. Cubemaps are generated from this mini G-buffer at runtime, using real-time lighting conditions. The art team can place as many reflections probes as necessary.  Generation of reflection probes follows 3 steps: relight, convolve and compress. A compute shader is used to process all 6 faces of a cubemap simultaneously. Probes are updated one at a time, with calculations done over multiple frames. Async computation can be used to reduce GPU process time.
 
 
@@ -94,11 +97,13 @@ To differentiate lighting under indoor and outdoor conditions, the reflection an
 
 
 ## Screen Space Reflection (SSR)
+
 [SSR](https://docs.unity3d.com/560/Documentation/Manual/PostProcessing-ScreenSpaceReflection.html) is a technique used for applying reflections (e.g. a shiny floor).  It is more commonly used for calculating subtle reflections such as on wet/shiny floor or in puddles. This technique is different that reflection technique used for rendering water. SSR is a rather expensive technique, resulting in an overhead of about 1.4ms on the PS4 Pro. SSR is also only available due to the use of deferred rendering during relighting, since it requires the use of the normal G-buffer generated during that phase. SSR is generally not recommended for use on mobile applications since it is computationally expensive. SSR reflections are able to generate reflections with greater detail that cubemaps and reflection probes. Objects using cubemaps for reflection are unable to obtain self reflection and Reflection Probe reflections are limited in their accuracy. Similar to volumetric fog, SSR is calculated through ray-marching from reflection points on the depth map to other surfaces.
 
 A Hi-Z buffer is computed for acceleration and allows rays to trace up to the full screen. The colour buffer of the previous frame will be sampled when applying the reflections. 
 
 ## Colour
+
 To support HDR display, we must consider luminance and colour space.
 
 HDR displays uses the SMPTE ST 2084 transfer function which supports a max brightness of 10,000 nits. A wide colour gamut is also used via the Rec. 2020 colour space, which covers 75.8% of the CIE 1931 colour space, as compared to the Rec. 709 which is commonly used by HDTV and only covers 35.9%.  The HDR display pipeline is as follows:

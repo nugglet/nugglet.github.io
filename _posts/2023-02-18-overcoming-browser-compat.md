@@ -14,7 +14,7 @@ toc_sticky: true
 
 From Google Chrome to Firefox to Opera GX, each browser has varying support and implementation for web pages. In this article, I explore the various challenges of developing cross-compatible webpages and some common bugfixes.<!--more-->
 
-## Challenges:
+# Challenges:
 
 - Browsers have different levels of [CSS support](https://www.w3schools.com/cssref/css3_browsersupport.php) (i.e. fonts, shadows etc.)/ HTML support etc.
 - Different ways of rendering HTML
@@ -23,7 +23,7 @@ From Google Chrome to Firefox to Opera GX, each browser has varying support and 
 - Pixel measurements may vary. The size of the page and its contents may scale badly if they are constants, and have to be adapted to different monitor sizes and resolutions.
 
 
-## Solutions
+# Solutions
 
 
 ### DOCTYPE Error
@@ -100,8 +100,8 @@ Layers of PE
 3. Javascript
 
 
-### Links and Resources
+# Links and Resources
 
-- https://www.browserstack.com/cross-browser-testing
-- https://www.smashingmagazine.com/2009/04/progressive-enhancement-what-it-is-and-how-to-use-it/
-- https://www.lambdatest.com/blog/10-ways-to-avoid-cross-browser-compatibility-issues/
+- [Browser Stack - Cross Browser Testing](https://www.browserstack.com/cross-browser-testing)
+- [Smashing Magazine - Progressive Enhancement: What it is and how to use it](https://www.smashingmagazine.com/2009/04/progressive-enhancement-what-it-is-and-how-to-use-it/)
+- [Lambdatest - 10 Ways to Avoid Cross-browser Compatibility Issues](https://www.lambdatest.com/blog/10-ways-to-avoid-cross-browser-compatibility-issues/)

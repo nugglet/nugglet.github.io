@@ -12,23 +12,24 @@ toc_sticky: true
 classes: wide
 ---
 
-From [The Forward-Forward Algorithm: Some Preliminary Investigations, Geoffrey Hinton](https://www.cs.toronto.edu/~hinton/FFA13.pdf)<!--more-->
+From [The Forward-Forward Algorithm: Some Preliminary Investigations, Geoffrey Hinton](https://www.cs.toronto.edu/~hinton/FFA13.pdf)
+In this paper, Hinton explains a new forward-forward (FF) algorithm to replace  backpropagation.<!--more-->
 
-## Abstract:
-In this paper, Hinton explains a new forward-forward (FF) algorithm to replace  backpropagation.
+# Summary
 
-### Summary
+
 Motivation:
 The success of backprop has led to much debate about weather the real brain learns in the same manner. However, there has been little evidence to support this. For example, the visual pathway. One would expect bottom-up connections from one cortex area to another that precedes it in the visual pathway. Instead, top-down connections that have loops were discovered. Neural activity goes through some cortical layers before returning to its starting point. This makes BPTT quite implausible as a method of learning sequences in the human brain. The brain's perceptual learning system performs inference and learning in realtime without stopping to compute backprop.
 
 > The main point of this paper is to show that neural networks containing unknown non-linearities do not need to resort to reinforcement learning.
 
 __The problem with backprop:__
-Backprop requires perfect knowledge of the computation performed in the forward pass or or the differentiable model of the forward pass to compute the derivatives in the backward pass. Backprop cannot take place if the forward pass were a black box computation. This is not an issue for the forward-forward (FF) algorithm.
+	Backprop requires perfect knowledge of the computation performed in the forward pass or or the differentiable model of the forward pass to compute the derivatives in the backward pass. Backprop cannot take place if the forward pass were a black box computation. This is not an issue for the forward-forward (FF) algorithm.
 
 An RL approach can make up for this shortcoming through random trial and error of weights and correlating the resulting change in a suitable reward function. However, RL models have high variance, especially when there are many changing variables. RL requires the lr to be inversely proportional to the number of variables being 'guessed', making RL a method that scales poorly for large networks.
 
-## The Forward-Forward Algorithm
+# The Forward-Forward Algorithm
+
 The idea is to replace the forward and backward passes of backpropagation by two forward passes that operate in exactly the same way as each other, but on different data and with opposite objectives.
 - +ve pass: uses real data, adjusts weights to increase goodness on every hidden layer
 - -ve pass: uses -ve data, adjust weights to decrease goodness in every hidden layer
@@ -36,7 +37,7 @@ The idea is to replace the forward and backward passes of backpropagation by two
 Goodness Function Used: sum of the squares (or -ve squares) of the activities of the rectified linear neurons in that layer  
 The goodness function was selected due to very simple derivatives and layer normalization removes all trace of the goodness.
 
-### Training:
+## Training:
 The aim of learning is to make the goodness be well above some threshold for real data and well below the same value for negative data. The model should correctly classify input vectors as +ve or -ve by applying the logistic fn to the goodness, minus some threshold θ.
 
 ![image-center]({{ site.url }}{{ site.baseurl }}/post_images/2022-12/equation.png){: .align-center}
@@ -44,7 +45,8 @@ _<sub>source: research paper linked above</sub>_
 
 FF normalizes the length of the hidden vector before using it as input to the next layer. This removes the length information of the activity, which defines the goodness for that layer. Only the orientation (relative activity) of the activity will be passed on to the next layer. This is because it is not necessary for the model to learn new features from the length data.
 
-### Experimental Setup
+## Experimental Setup
+
 __Motivating Questions:__
 1. If we have a good source of -ve data, does FF learn effective multi-layer representations that capture the data structure?
 2. Where does the -ve data come from?
@@ -69,7 +71,7 @@ __The Method:__
 	3. Run the net with a particular label as part of the input, and accumulate goodness of all except the first hid layer. Do this for each label separately, then choose the label with the highest goodness.
 
 
-## Key Takeaways
+# Key Takeaways
 
 | Backprop (BP)          							| Forward-forward (FF)  						|
 | ----------------------------------         		| ---------------------------------- 

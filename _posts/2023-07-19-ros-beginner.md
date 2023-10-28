@@ -16,7 +16,7 @@ h_max: 2
 The Robot Operating System (ROS), in short, is a communication tool used in robotics to facilitate transfer of messages or data in a multi-device system. In this article, I go through the very basics of ROS and how to get started with it.<!--more-->
 
 
-## Introduction
+# Introduction
 
 ROS is essentially a middleware that enables efficient hardware-software and software-software communication. It enables reusing code for robotics. ROS is not actually an operating system. ROS 1 runs on Linux (debian or ubuntu), and ROS 2 adds support for various other OSes (macOS, Windows, RTOS etc.).
 ROS is comprised of 4 parts:
@@ -48,7 +48,7 @@ ROS uses the following tools to facilitate software-software communication:
 *   Services: creates a synchronous channel btw nodes to allow users to request specific actions from robots and change settings
     
 
-### ROS 1 vs ROS 2
+## ROS 1 vs ROS 2
 
 [ROS 2](https://www.science.org/doi/10.1126/scirobotics.abm6074) is an updated version of the ROS 1 framework, made in 2018. It is a separate framework from the original ROS 1 due to various breaking changes and improvements made.  The latest ROS 1 update (version [Noetic Ninjemys](https://discourse.ros.org/t/ros-noetic-ninjemys-release/14262)) has an end-of-life date of May 2025, after which it will be replaced by ROS 2.
 
@@ -78,7 +78,7 @@ URL = {https://www.science.org/doi/abs/10.1126/scirobotics.abm6074}
 }
 ```
 
-## Getting Started with ROS 2
+# Getting Started with ROS 2
 
 The official ROS 2 [docs](https://docs.ros.org/en/humble/Installation.html) provide an excellent installation guide. Select the distro compatible with the OS you are running on. I use Iron Irwini for Ubuntu 22.04 LTS (bc my experience with simply *installing* ROS on windows has been absolute ass).
 
@@ -178,7 +178,9 @@ Follow the official humble tutorial on Turtlesim, ros2 and rqt [here](https://do
 
 Before running any ROS program, always run `roscore` to initialize the basic ROS node communication system. Alternatively, you can use `ros launch` with your project as well, which automatically starts `roscore` along with whatever package is specified to be run. More information on the `ros launch` command can be found in the section below.
 
-## Understanding ROS 2 CLI Tools
+# Understanding ROS 2 CLI Tools
+
+## The Basics
 
 ### ROS Nodes
 

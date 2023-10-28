@@ -17,7 +17,7 @@ This guide details the quintessential parts of regular expressions (at least for
 var r = /\d+/g 
 ```
 
-## Regex Basics
+# Regex Basics
 The following characters indicate some category of characters. Using these symbols alone will represent one character that matches its parameter. Note that capitalizing the symbol will indicate the opposite of its parameter.
 
 Symbol | Meaning

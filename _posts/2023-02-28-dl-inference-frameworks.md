@@ -29,7 +29,7 @@ In production, there are 2 main priorities with regards to model deployment:
 2. Using minimal computing resources
 
 
-## Optimising your Inference Framework
+# Optimising your Inference Framework
 
 There are a number of great inference frameworks that work to optimize you model deployment. In the paper [_Deep Learning Inference Frameworks Benchmark_](https://arxiv.org/abs/2210.04323), Pierrick Pochelu proposes a number of metrics to benchmark the performance of your framework. These include:
 1. Throughput (predictions per second)

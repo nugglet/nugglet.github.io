@@ -116,6 +116,7 @@ The criteria of these categories are as follows:
 | Single-Agent | A single agent operating in an environment. |
 | Multi-Agent | Multiple agents operating in the same environment simultaneously. |
 
+
 For example, the real world is mostly a partially observable, stochastic, sequential, dynamic, continuous and multi-agent environment. (It is also a very difficult one.)
 
 
@@ -148,7 +149,7 @@ The expected cumulative reward is discounted to account for the fact that reward
 
 The policy (π) is a function that the RL system tries to learn. Intuitively, it is like the brain of the AI agent, which assesses the known state space and chooses an action to be executed. The goal of the RL system is to find the optimal policy (π*) through training, which is the policy that maximizes the expected reward.
 
-There are 2 methods of learning the optimal policy.
+There are 2 methods of learning the optimal policy: Policy-based and Value-based methods.
 
 
 ### Policy-Based Learning
@@ -160,12 +161,18 @@ Policy-based methods learn a policy function directly either by defining a mappi
 
 ![image-center]({{ site.url }}{{ site.baseurl }}/post_images/2023-10/policybased_function.png){: .align-center}
 
+Policy-based learning automatically defines a policy during training, and the result of the policy is dependant on its training. We do not have to manually define what the policy is.
+
+
 ### Value-Based Learning
 
 
 Value-based learners learn a value function instead of a policy function. This value function maps a state to the expected value of being at that state. The value of a state is the expected discounted reward the agent will get if it starts in that state, and consequently acts to move towards a state with the highest value.
 
 ![image-center]({{ site.url }}{{ site.baseurl }}/post_images/2023-10/valuebased_function.png){: .align-center}
+
+Value-based learners train a value function, which outputs the state or a state-action pair. The policy is a pre-defined (by you) function, and the value  function to be trained could be a neural network. Finding an optimal value function leads to finding the optimal policy.
+
 
 # Designing RL Systems
 
@@ -185,6 +192,7 @@ In formulating the problem, there are several parameters that should be consider
 - Goal Test: Goal state. Can be defined explicitly or implicitly.
 
 There are various considerations in formulating the problem, such as choosing an appropriate representation for the states, actions, transition model and path cost. The complexity of a state space depends on its representation, and its transition model defines how the graph of states and their relationships is structured, which consequently affects the speed and method of traversing this graph.
+
 
 ### Selecting a State Space
 
@@ -237,7 +245,9 @@ The win and lose conditions are:
 
 ![image-center]({{ site.url }}{{ site.baseurl }}/post_images/2023-10/catmouse.png){: .align-center}
 
+
 ### Assessing the Environment
+
 
 Here, the environment has the following features:
 - Fully Observable: The full board state is visible to all players at all time
@@ -249,6 +259,7 @@ Here, the environment has the following features:
 
 
 ### Problem Formulation
+
 
 The problem can be formulated as:
 - State Space: [array of position of all pieces on board]
@@ -284,7 +295,12 @@ However, since we don't want to encourage the mouse's exploitative behaviour, we
 
 Recall that the discount rate is a value between 0 and 1. This means that the discount rate decreases as the number of turns increase, and thus earlier turns at the start of the game are more heavily penalised. The reward gained from collecting the small cheese near the mouse at the start of the game becomes so small that the mouse is encouraged to explore the board more.
 
-* note: example adapted from HuggingFace's [Deep RL Course](https://huggingface.co/learn/deep-rl-course/unit0/introduction)
+<sub>note: example adapted from HuggingFace's [Deep RL Course](https://huggingface.co/learn/deep-rl-course/unit0/introduction)</sub>
+
+## Summary
+
+An overview of a reinforcement learning system can thus be said to be
+![image-center]({{ site.url }}{{ site.baseurl }}/post_images/2023-10/rl_summary.png){: .align-center}
 
 
 Links and Resources

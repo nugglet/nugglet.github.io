@@ -10,7 +10,7 @@ excerpt_separator: "<!--more-->"
 
 Writing good unit test cases is an important part of any software endeavour. But what constitutes a good unit test? <!--more-->
 
-## Manual Test Cases
+# Manual Test Cases
 Reasons to use: automation is too expensive, tests are too complex, better for more created/empathetic test approaches
 Good test cases are easier to maintain, provides versatility and flexibility.
 
@@ -39,6 +39,6 @@ Sample Test Case Format:
 ```
 
 
-## Links and Resources
+# Links and Resources
 - [Writing unit tests with javascript mocha](https://snyk.io/blog/how-to-write-unit-test-in-javascript/)
 - [Automated testing with Selenium](https://www.lambdatest.com/blog/how-to-write-test-scripts-in-selenium/)

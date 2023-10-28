@@ -17,7 +17,7 @@ toc_sticky: true
 Segmentation is a popular vision problem that is concerned with analysis and object or scene understanding of the contents of a given input scene. Most commonly, this is used with images, but segmentation can also be performed on a range of datatypes such as videos or 2D and 3D point clouds. The ability of segmentation models to detect objects and identify their location makes these models incredibly useful in projects involving autonomous machines and mapping and localization.<!--more-->
 
 
-## Types of Segmentation
+# Types of Segmentation
 
 
 There are a few types of segmentation tasks, each concerning a different level of granularity within it's classification objective. The main difference between these tasks are the types of datasets (particularly how they are labelled), and their end application use. This section provides a brief overview of the different kinds of segmentation: Semantic, Instance and Panoptic.
@@ -80,7 +80,7 @@ A Panoptic Segmentation model functions as such:
 <sub>Comparison between panoptic segmentation and others (source: [Panoptic Segmentation](https://arxiv.org/abs/1801.00868))</sub>
 
 
-## Summary
+# Summary
 
 
 In general, the different visual perception tasks can be characterized as such:
@@ -92,7 +92,7 @@ In general, the different visual perception tasks can be characterized as such:
 | Panoptic Segmentation | Semantic + instance segmentation |
 
 
-## Links and Resources
+# Links and Resources
 
 - [Segmentation Models GitHub](https://github.com/qubvel/segmentation_models/tree/94f624b7029deb463c859efbd92fa26f512b52b8)
 - [The Complete Guide to Panoptic Segmentation - V7Labs](https://www.v7labs.com/blog/panoptic-segmentation-guide)

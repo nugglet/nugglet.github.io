@@ -15,7 +15,7 @@ h_min: 2
 
 Docker is a useful tool widely used today to facilitate software development and shipping code. This article covers a comprehensive overview of docker containers and how to use them.<!--more-->
 
-## Introduction
+# Introduction
 
 
 A container is a package application with all the necessary dependencies and configurations for development, deployment and shipping. Containers are portable, and are hosted on their own private repository. DockerHub is a public repository for docker containers, and is usually the starting point for development. 
@@ -42,7 +42,7 @@ Dockers containers only contain the application layer. It uses the local machine
 The Docker [documentation](https://docs.docker.com/desktop/install/windows-install/) provides an installation guide for a variety of OSes. 
 
 
-### Architecture of a Docker Container
+# Architecture of a Docker Container
 
 
 A docker container is made up of a stack of layers of images, with its base image being some sort of linux distribution. It is important for this image to be small (e.g. alpine). At the top would be the application image (i.e. postgres).
@@ -123,7 +123,7 @@ temp?
 ```
 
 
-### Docker Repositories
+## Docker Repositories
 
 
 There are two types of docker repositories: public (e.g. DockerHub) and private. Docker repositories store container images. Similar to a github repo, members have push/pull access and can be assigned other permissions. Image tags and other details can also be viewed.
@@ -135,7 +135,7 @@ Unlike github however, deploying a private docker repository is not so straightf
 An image is stale if there has been no push or pull activity for more than one month. A multi-architecture image is stale if all single-architecture images part of its manifest are stale.
 
 
-### Docker in a Tech Stack
+# Docker in a Tech Stack
 
 
 Docker falls under the DevOps category in a tech stack, facilitating better management of development environments and application deployment. Below is a sample diagram of a possible tech stack with docker containers.
@@ -273,7 +273,7 @@ For other machines, in general, there are 2 workarounds:
 2. Use a VM running on Hyper-V (e.g. MobyVM, Oracle VirtualBox)
 
 
-## Docker Network
+# Docker Network
 
 
 Docker containers become a powerful tool since multiple containers can be run and connected to each other, or even non-docker workloads, allowing a higher level of application isolation. The typical docker network is a [bridge network](https://en.wikipedia.org/wiki/Network_bridge), with the host machine acting as the bridge entity between docker containers and the outside world (i.e. internet/local network etc.). [NAT](https://en.wikipedia.org/wiki/Network_address_translation) and [host](https://docs.docker.com/network/host/) networking is only supported on Linux host machines.
@@ -359,7 +359,7 @@ The [IPvlan](https://docs.docker.com/network/ipvlan/) driver gives users complet
 Docker network plugins are supported by the LibNetwork project, and can be found on the docker [store](https://hub.docker.com/search?category=network&q=&type=plugin&_gl=1*1h8fle1*_ga*MTgzMzc2ODI5MS4xNjg0ODgzODYx*_ga_XJWPQMJYHQ*MTY4NTAwNjc4Mi43LjEuMTY4NTAwODI5MS4zNy4wLjA.) or other third party sites. We can also write our own custom network plugins, following the [Docker plugin API](https://docs.docker.com/engine/extend/plugin_api/) and network plugin protocol. See the docker [documentation](https://docs.docker.com/engine/extend/plugins_network/) for more information.
 
 
-## Wrapping Up
+# Wrapping Up
 
 
 In summary, docker containers can be pulled from a docker repository, created, and run using 
@@ -379,7 +379,7 @@ The specified docker network can be created using the `docker network create` co
 As always, remember to check the official docker documentation for more information.
 
 
-## Links and Resources
+# Links and Resources
 
 - [Docker Documentation](https://docs.docker.com)
 - [Docker Networking](https://earthly.dev/blog/docker-networking/)
