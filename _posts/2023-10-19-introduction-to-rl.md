@@ -293,7 +293,7 @@ However, since we don't want to encourage the mouse's exploitative behaviour, we
 
 ![image-center]({{ site.url }}{{ site.baseurl }}/post_images/2023-10/catmouse_discreward.png){: .align-center}
 
-Recall that the discount rate is a value between 0 and 1. This means that the discount rate decreases as the number of turns increase, and thus earlier turns at the start of the game are more heavily penalised. The reward gained from collecting the small cheese near the mouse at the start of the game becomes so small that the mouse is encouraged to explore the board more.
+Recall that the discount rate is a value between 0 and 1. This means that the discount rate decreases as the number of turns increase, and thus future turs later in the game are more heavily penalised. The reward gained from collecting the small cheese near the mouse at the start of the game becomes so small that the mouse is encouraged to explore the board more.
 
 <sub>note: example adapted from HuggingFace's [Deep RL Course](https://huggingface.co/learn/deep-rl-course/unit0/introduction)</sub>
 
